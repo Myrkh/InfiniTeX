@@ -11,7 +11,7 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <style>
-        body { margin: 0; padding: 0; overflow: hidden; background: black; color: white; }
+        body { margin: 0; padding: 0; overflow: hidden; background: black; color: white; font-family: sans-serif; }
         #root { width: 100vw; height: 100vh; }
     </style>
 </head>
@@ -19,11 +19,13 @@
     <div id="root"></div>
 
     <script type="text/babel">
-        const { useState, useEffect } = React;
+        // On récupère les outils SANS utiliser "import"
+        const { useState, useEffect, useRef, useCallback, useMemo } = React;
         const { motion, AnimatePresence } = FramerMotion;
 
-        // 1. COLLEZ VOTRE CODE .JSX CI-DESSOUS (Le contenu de votre fichier app.jsx)
-      
+        // --- TON CODE JSX COMMENCE ICI (SANS LES IMPORTS) ---
+
+
 // ═══════════════════════════════════════════════════════════════════════════════════════
 // ∞TeX — Infinite Spatial LaTeX Writing Platform
 // The canvas that never ends for scientific documents
@@ -3210,17 +3212,25 @@ const App = () => {
     </div>
   );
 };
-
-export default App;
+         
         function App() {
             return (
-                <div className="flex items-center justify-center h-full">
-                    <h1 className="text-4xl font-bold">InfiniTeX est en ligne !</h1>
+                <div className="flex flex-col items-center justify-center h-full space-y-4">
+                    <motion.h1 
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-5xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent"
+                    >
+                        InfiniTeX
+                    </motion.h1>
+                    <p className="text-gray-400">La plateforme est prête.</p>
                 </div>
             );
         }
 
-        // 2. CE CODE EST OBLIGATOIRE POUR AFFICHER L'APP
+        // --- TON CODE JSX FINIT ICI ---
+
+        // CETTE LIGNE EST LE MOTEUR QUI ALLUME L'ÉCRAN
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
