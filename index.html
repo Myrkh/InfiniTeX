@@ -3211,9 +3211,12 @@ const App = () => {
       {screen === 'canvas' && currentProject && <Canvas project={currentProject} onUpdateProject={handleUpdateProject} onBack={handleBack} />}
     </div>
   );
-};              
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
+}; // Fin de ta fonction App
+
+    // UTILISE CE CODE EXACTEMENT :
+    const domNode = document.getElementById('root');
+    const root = ReactDOM.createRoot(domNode);
+    root.render(React.createElement(App));
+</script>
 </body>
 </html>
