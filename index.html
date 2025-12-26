@@ -33,9 +33,10 @@
 </head>
 <body>
   <div id="root"></div>
-  <script type="text/babel" data-type="module">
-import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+  <script type="text/babel">
+// Use global UMD variables instead of ES6 imports (Babel standalone cannot resolve module imports)
+const { useState, useRef, useEffect, useCallback, useMemo } = React;
+const { motion, AnimatePresence } = window.FramerMotion;
 
 // ═══════════════════════════════════════════════════════════════════════════════════════
 // ∞TeX — Infinite Spatial LaTeX Writing Platform
